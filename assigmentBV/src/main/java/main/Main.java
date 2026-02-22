@@ -4,7 +4,7 @@ import service.QuanLySanPham;
 import java.util.Scanner;
 
 // ĐÁP ỨNG Y10: Hiển thị menu chương trình
-public class MainNumberMenu {
+public class Main {
 
     // Hàm main là điểm bắt đầu (entry point) của mọi ứng dụng Java
     public static void main(String[] args) {
