@@ -34,7 +34,7 @@ public class Main {
             try {
                 // Dùng ép kiểu thay vì nextInt() để khắc phục triệt để lỗi "trôi lệnh Scanner"
                 chon = Integer.parseInt(sc.nextLine());
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Lỗi: Vui lòng nhập số!");
                 continue; // Bỏ qua đoạn switch bên dưới, quay lại đầu vòng lặp while (hiển thị lại menu)
             }
