@@ -59,9 +59,6 @@ public class Main {
                 case 6:
                     service.sapXep();
                     break;
-                case 7:
-                    service.minhHoaKeThua();
-                    break;
                 case 0:
                     System.out.println("Đã thoát chương trình!");
                     System.exit(0); // Lệnh tắt hoàn toàn ứng dụng Java

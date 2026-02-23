@@ -170,16 +170,4 @@ public class QuanLySanPham {
         System.out.println("\n=> Đã sắp xếp danh sách theo tên A-Z!");
         xuat(); // Sắp xong thì in ra cho người dùng xem
     }
-
-    // Tiện ích thêm: Minh họa tính kế thừa
-    public void minhHoaKeThua() {
-        System.out.println("\n--- CÁC SẢN PHẨM ĐIỆN TỬ ---");
-        for (SanPham sp : listSP) {
-            // Toán tử instanceof dùng để kiểm tra xem biến 'sp' có thực sự thuộc class SanPhamDienTu hay không
-            if (sp instanceof SanPhamDienTu) {
-                sp.xuat();
-                System.out.println();
-            }
-        }
-    }
 }
