@@ -22,10 +22,9 @@ public class Main {
             System.out.println("4. Tìm kiếm sản phẩm (Y6)");
             System.out.println("5. Xóa sản phẩm trong danh sách (Y7)");
             System.out.println("6. Sắp xếp danh sách theo tên (Y8)");
-            System.out.println("7. Hiển thị các sản phẩm điện tử");
             System.out.println("0. Thoát chương trình");
             System.out.println("=================================");
-            System.out.print("=> Chọn chức năng (0-7): ");
+            System.out.print("=> Chọn chức năng (0-6): ");
 
             int chon = -1;
 
