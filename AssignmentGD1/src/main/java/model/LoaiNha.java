@@ -1,17 +1,17 @@
 package model;
 
 public enum LoaiNha {
-    CHUNG_CU("Căn hộ chung cư"),
+    CAN_HO("Căn hộ chung cư"),
     NHA_RIENG("Nhà riêng"),
     PHONG_TRO("Phòng trọ khép kín");
 
-    private final String moTa;
+    private String tenLoai;
 
-    LoaiNha(String moTa) { 
-        this.moTa = moTa; 
+    LoaiNha(String tenLoai) {
+        this.tenLoai = tenLoai;
     }
 
-    public String getMoTa() { 
-        return moTa; 
+    public String getTenLoai() {
+        return tenLoai;
     }
 }

@@ -1,23 +1,34 @@
 package model;
 
 public class DanhGia {
-    private NguoiDung nguoiDanhGia; 
-    private NhaTro nhaTro;          
-    private LoaiDanhGia danhGia;    
+    private String maDG;
+    private String maNguoiDanhGia; // Liên kết tới NguoiDung
+    private ThaiDoDanhGia thaiDo;
     private String noiDung;
 
-    public DanhGia(NguoiDung nguoiDanhGia, NhaTro nhaTro, LoaiDanhGia danhGia, String noiDung) {
-        this.nguoiDanhGia = nguoiDanhGia;
-        this.nhaTro = nhaTro;
-        this.danhGia = danhGia;
+    public DanhGia() {}
+
+    public DanhGia(String maDG, String maNguoiDanhGia, ThaiDoDanhGia thaiDo, String noiDung) {
+        this.maDG = maDG;
+        this.maNguoiDanhGia = maNguoiDanhGia;
+        this.thaiDo = thaiDo;
         this.noiDung = noiDung;
     }
 
-    public NhaTro getNhaTro() { return nhaTro; }
+    public String getMaDG() { return maDG; }
+    public void setMaDG(String maDG) { this.maDG = maDG; }
+
+    public String getMaNguoiDanhGia() { return maNguoiDanhGia; }
+    public void setMaNguoiDanhGia(String maNguoiDanhGia) { this.maNguoiDanhGia = maNguoiDanhGia; }
+
+    public ThaiDoDanhGia getThaiDo() { return thaiDo; }
+    public void setThaiDo(ThaiDoDanhGia thaiDo) { this.thaiDo = thaiDo; }
+
+    public String getNoiDung() { return noiDung; }
+    public void setNoiDung(String noiDung) { this.noiDung = noiDung; }
 
     @Override
     public String toString() {
-        return String.format("- %s đánh giá [%s]: %s", 
-                nguoiDanhGia.getTenND(), danhGia.name(), noiDung);
+        return "  + Mã ĐG: " + maDG + " | Người ĐG: " + maNguoiDanhGia + " | Thái độ: " + thaiDo.getMoTa() + " | Nội dung: " + noiDung;
     }
 }
