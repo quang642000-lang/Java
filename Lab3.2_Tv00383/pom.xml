@@ -10,5 +10,5 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>lab.lab3._tv00383.Lab32_Tv00383</exec.mainClass>
     </properties>
-    <name>Lab3.2.3_Tv00383</name>
+    <name>Lab3.2.3</name>
 </project>
