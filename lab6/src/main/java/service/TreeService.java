@@ -2,7 +2,6 @@ package service;
 
 import connect.connect;
 import model.Tree;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,6 +68,67 @@ public class TreeService {
                 ps.setInt(3, t.getParentId());
             }
             ps.setInt(4, t.getLevel());
+            
+            int rowObtain = ps.executeUpdate();
+            if (rowObtain > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    public boolean update(Tree t) {
+        String sql = "UPDATE tree SET node_name=?, parent_id=?, level=? WHERE node_id=?";
+        Connection con = null;
+        PreparedStatement ps = null;
+        
+        try {
+            con = connect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, t.getNodeName());
+            if (t.getParentId() == null) {
+                ps.setNull(2, Types.INTEGER);
+            } else {
+                ps.setInt(2, t.getParentId());
+            }
+            ps.setInt(3, t.getLevel());
+            ps.setInt(4, t.getNodeId());
+            
+            int rowObtain = ps.executeUpdate();
+            if (rowObtain > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    public boolean delete(int id) {
+        String sql = "DELETE FROM tree WHERE node_id=?";
+        Connection con = null;
+        PreparedStatement ps = null;
+        
+        try {
+            con = connect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             
             int rowObtain = ps.executeUpdate();
             if (rowObtain > 0) {

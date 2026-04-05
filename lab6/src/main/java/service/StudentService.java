@@ -2,7 +2,6 @@ package service;
 
 import connect.connect;
 import model.Student;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,11 +10,9 @@ import java.util.List;
 
 public class StudentService {
 
-    // Lấy danh sách toàn bộ sinh viên
     public List<Student> getAll() {
         List<Student> list = new ArrayList<>();
         String sql = "SELECT * FROM student";
-        
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -36,7 +33,6 @@ public class StudentService {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            // Đóng tài nguyên thủ công trong khối finally
             try {
                 if (rs != null) rs.close();
                 if (ps != null) ps.close();
@@ -48,7 +44,6 @@ public class StudentService {
         return list;
     }
 
-    // Thêm sinh viên (Create)
     public boolean add(Student s) {
         String sql = "INSERT INTO student(student_id, student_name, gender, gpa) VALUES(?, ?, ?, ?)";
         Connection con = null;
@@ -79,7 +74,6 @@ public class StudentService {
         return false;
     }
 
-    // Cập nhật sinh viên (Update)
     public boolean update(Student s) {
         String sql = "UPDATE student SET student_name=?, gender=?, gpa=? WHERE student_id=?";
         Connection con = null;
@@ -110,7 +104,6 @@ public class StudentService {
         return false;
     }
 
-    // Xóa sinh viên (Delete)
     public boolean delete(int id) {
         String sql = "DELETE FROM student WHERE student_id=?";
         Connection con = null;
