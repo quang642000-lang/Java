@@ -97,7 +97,7 @@ public class Main {
                 case 0:
                     break;
                 default:
-                    System.out.println("Lựa chọn không hợp lệ!!!");
+                    System.out.println("Lựa chọn không hợp lệ!");
             }
         } while (choice != 0);
         
