@@ -57,6 +57,7 @@ public class AppView {
             System.out.println("1. Xem danh sách");
             System.out.println("2. Thêm người dùng");
             System.out.println("3. Xóa người dùng");
+            System.out.println("4. Lọc người dùng theo tên");
             System.out.println("0. Quay lại Menu chính");
             String c = scanner.nextLine();
             switch (c) {
@@ -82,6 +83,10 @@ public class AppView {
                     System.out.print("Nhập ID người dùng cần xóa: ");
                     controller.xoaNguoiDung(scanner.nextLine());
                     break;
+                case "4":
+                    System.out.print("Nhập tên người dùng cần tìm (không cần nhập cả họ tên): ");
+                    controller.timKiemNguoiDungTheoTen(scanner.nextLine());
+                    break;
                 case "0": 
                     return; // Lệnh return sẽ thoát khỏi hàm menuNguoiDung() và tự động quay về vòng lặp start()
             }
@@ -95,6 +100,8 @@ public class AppView {
             System.out.println("2. Thêm nhà trọ");
             System.out.println("3. Xóa nhà trọ");
             System.out.println("4. Cập nhật trạng thái phòng trọ");
+            System.out.println("5. Đánh giá phòng trọ (LIKE / DISLIKE)");
+            System.out.println("6. Xem thống kê đánh giá (Hàng loạt / Theo ID)");
             System.out.println("0. Quay lại Menu chính");
             String c = scanner.nextLine();
             switch (c) {
@@ -144,6 +151,35 @@ public class AppView {
                         System.out.print("Chọn trạng thái mới (1: Trống, 2: Đang ở, 3: Đang sửa): ");
                         TrangThaiNhaTro ttMoiQuan = TrangThaiNhaTro.fromLuaChon(scanner.nextLine());
                         controller.capNhatTrangThaiTheoQuan(updateQuan, ttMoiQuan);
+                    } else {
+                        System.out.println("Lựa chọn không hợp lệ!");
+                    }
+                    break;
+                case "5":
+                    System.out.print("Nhập ID nhà trọ muốn đánh giá: ");
+                    String idDanhGia = scanner.nextLine();
+                    System.out.print("Nhập đánh giá (1: LIKE, 2: DISLIKE): ");
+                    String chonDg = scanner.nextLine();
+                    
+                    if (chonDg.equals("1")) {
+                        controller.danhGiaNhaTro(idDanhGia, TrangThaiDanhGia.LIKE);
+                    } else if (chonDg.equals("2")) {
+                        controller.danhGiaNhaTro(idDanhGia, TrangThaiDanhGia.DISLIKE);
+                    } else {
+                        System.out.println("Lựa chọn đánh giá không hợp lệ!");
+                    }
+                    break;
+                case "6":
+                    System.out.println("   1. Xem thống kê TẤT CẢ phòng trọ (Hàng loạt)");
+                    System.out.println("   2. Xem thống kê theo ID phòng cụ thể");
+                    System.out.print("   Chọn chức năng: ");
+                    String chonThongKe = scanner.nextLine();
+                    
+                    if (chonThongKe.equals("1")) {
+                        controller.xemTatCaThongKeDanhGia();
+                    } else if (chonThongKe.equals("2")) {
+                        System.out.print("Nhập ID nhà trọ cần xem thống kê đánh giá: ");
+                        controller.xemThongKeDanhGia(scanner.nextLine());
                     } else {
                         System.out.println("Lựa chọn không hợp lệ!");
                     }
